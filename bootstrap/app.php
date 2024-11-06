@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             \Monicahq\Cloudflare\Http\Middleware\TrustProxies::class
         );
         $middleware->trustProxies(['*']);
+        $middleware->append(\App\Http\Middleware\CloakingMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
